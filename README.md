@@ -39,3 +39,7 @@ $ rails server
 
 For more information, see the
 [*Ruby on Rails Tutorial* book](http://www.railstutorial.org/book).
+
+
+
+End of Day 2 ====7.3 Unsuccessful signups
