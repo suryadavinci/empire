@@ -8,11 +8,19 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user=User.new(params[:user])
+    @user=User.new(user_params)
     if @user.save
-      #
+      flash[:success] = "Welcome to EmpireBus!!!"
+      redirect_to @user
     else
+      flash[:danger] = "What did you do???"
+
       render 'new'
     end
   end
+
+  private
+    def user_params
+      params.require(:user).permit(:name, :email, :phone, :password, :password_confirmation)
+    end
 end
