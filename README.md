@@ -43,3 +43,6 @@ For more information, see the
 
 
 End of Day 2 ====7.3 Unsuccessful signups
+
+
+x = BusRoute.includes(:from, :to, :bus).where(from_id: 1)
