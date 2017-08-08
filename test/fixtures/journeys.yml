@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bus: one
+  journey_date: 2017-08-08
+  departure_time: 2017-08-08 12:59:58
+  arrival_time: 2017-08-08 12:59:58
+  from: one
+  to: one
+
+two:
+  bus: two
+  journey_date: 2017-08-08
+  departure_time: 2017-08-08 12:59:58
+  arrival_time: 2017-08-08 12:59:58
+  from: two
+  to: two

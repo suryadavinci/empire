@@ -1,6 +1,9 @@
 <div class="center jumbotron">
 <!-- <h1>StaticPages#home</h1> -->
-<p>Welcome To EmpireBus</p>
-<%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-
+  <% if  logged_in? %>
+    <%= render @journeys %>
+  <% else %>
+    <p>Welcome To EmpireBus</p>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  <% end %>
 </div>
