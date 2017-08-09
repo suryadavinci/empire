@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170808072958) do
+ActiveRecord::Schema.define(version: 20170809072530) do
+
+  create_table "bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "journey_id"
+    t.bigint "user_id"
+    t.integer "seats_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["journey_id"], name: "index_bookings_on_journey_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
 
   create_table "buses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -26,6 +36,16 @@ ActiveRecord::Schema.define(version: 20170808072958) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "jokings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "journey_id"
+    t.bigint "user_id"
+    t.integer "seats_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["journey_id"], name: "index_jokings_on_journey_id"
+    t.index ["user_id"], name: "index_jokings_on_user_id"
+  end
+
   create_table "journeys", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "bus_id"
     t.date "journey_date"
@@ -35,6 +55,7 @@ ActiveRecord::Schema.define(version: 20170808072958) do
     t.bigint "to_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["bus_id"], name: "index_journeys_on_bus_id"
     t.index ["from_id"], name: "index_journeys_on_from_id"
     t.index ["to_id"], name: "index_journeys_on_to_id"
@@ -51,5 +72,9 @@ ActiveRecord::Schema.define(version: 20170808072958) do
     t.index ["phone"], name: "index_users_on_phone", unique: true
   end
 
+  add_foreign_key "bookings", "journeys"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "jokings", "journeys"
+  add_foreign_key "jokings", "users"
   add_foreign_key "journeys", "buses"
 end

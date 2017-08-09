@@ -4,7 +4,15 @@ class JourneysController < ApplicationController
   # GET /journeys
   # GET /journeys.json
   def index
-    @journeys = Journey.all
+    if(journey_params.empty?)
+      @journeys = Journey.all
+    else
+      @journeys = Journey.where(journey_params)
+    end
+    #redirect_to request.referrer
+    #render root_path
+    #render 'static_pages/home'
+
   end
 
   # GET /journeys/1
@@ -74,6 +82,6 @@ class JourneysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def journey_params
-      params.require(:journey).permit(:bus_id, :journey_date, :departure_time, :arrival_time, :from_id, :to_id)
+      params.require(:journey).permit(:name, :bus_id, :journey_date, :departure_time, :arrival_time, :from_id, :to_id)
     end
 end

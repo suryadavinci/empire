@@ -12,6 +12,13 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :journey_name %>
+    <!-- <%= form.collection_select :bus_id, @buses, :id, :name , id: :journey_bus_id %> -->
+
+  </div>
+
+  <div class="field">
     <%= form.label :bus_id %>
     <!-- <%= form.text_field :bus_id, id: :journey_bus_id %> -->
     <%= form.collection_select :bus_id, @buses, :id, :name , id: :journey_bus_id %>

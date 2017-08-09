@@ -1,0 +1,59 @@
+<%= form_for(@journey , method: :get) do |form| %>
+  <div class="field">
+    <%= form.label :from_id %>
+    <!-- <%= form.text_field :bus_id, id: :journey_bus_id %> -->
+    <%= form.collection_select :from_id, @destinations, :id, :name , id: :journey_from_id %>
+
+
+  </div>
+
+  <div class="field">
+    <%= form.label :to_id %>
+    <!-- <%= form.text_field :bus_id, id: :journey_bus_id %> -->
+    <%= form.collection_select :to_id, @destinations, :id, :name , id: :journey_to_id %>
+
+  </div>
+
+
+  <%= form.submit "Search",  class: "btn btn-primary" %>
+<% end %>
+
+<script>
+function witness(){
+    $("#fruit2 option").each(function(){
+        if($("#fruit1 option:selected").val() == $(this).val())
+            $(this).attr("disabled", "disabled");
+        else
+            $(this).removeAttr("disabled");
+    });
+}
+</script>
+
+
+
+<!--
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:session, url: login_path) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.submit "Log in", class: "btn btn-primary" %>
+    <% end %>
+    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+  </div>
+</div> -->
+
+
+
+<!--
+<%= form_tag users_path, :method => 'get', :id => 'users_search' do %>
+    <p>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil %>
+    </p>
+<% end %> -->

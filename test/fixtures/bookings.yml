@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  journey: one
+  user: one
+  seats_count: 1
+
+two:
+  journey: two
+  user: two
+  seats_count: 1

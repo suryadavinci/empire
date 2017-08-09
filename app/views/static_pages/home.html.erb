@@ -1,9 +1,8 @@
 <div class="center jumbotron">
 <!-- <h1>StaticPages#home</h1> -->
   <% if  logged_in? %>
-    <%= render @journeys %>
+    <%= render 'shared/loggedinhome' %>
   <% else %>
-    <p>Welcome To EmpireBus</p>
-    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+    <%= render 'shared/loggedouthome' %>
   <% end %>
 </div>

@@ -1,7 +1,9 @@
 class StaticPagesController < ApplicationController
   def home
     if logged_in?
-      @journeys = Journey.all
+      @destinations = Destination.order(:name)
+      @journey = Journey.new
+      @journeys = []
     end
   end
 
