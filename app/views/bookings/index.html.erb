@@ -6,21 +6,20 @@
   <thead>
     <tr>
       <th>Journey</th>
-      <th>User</th>
       <th>Seats count</th>
-      <th colspan="3"></th>
+      <th>Departure Date/TIme</th>
+      <th>Arrival Date/Time</th>
+
     </tr>
   </thead>
 
   <tbody>
     <% @bookings.each do |booking| %>
       <tr>
-        <td><%= booking.journey %></td>
-        <td><%= booking.user %></td>
+        <td><%= booking.journey.name %></td>
         <td><%= booking.seats_count %></td>
-        <td><%= link_to 'Show', booking %></td>
-        <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
-        <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= format_datetime(booking.journey.arrival_time) %></td>
+        <td><%= format_datetime(booking.journey.departure_time) %></td>
       </tr>
     <% end %>
   </tbody>

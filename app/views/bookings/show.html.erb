@@ -1,12 +1,17 @@
 <h1>Booking Summary</h1>
 <p>
   <strong>Journey:</strong>
-  <%= @booking.journey %>
+  <%= @booking.journey.name%>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @booking.user %>
+  <%= @booking.journey.from %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @booking.journey.to %>
 </p>
 
 <p>

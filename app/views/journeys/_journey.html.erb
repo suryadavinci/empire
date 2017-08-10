@@ -1,8 +1,8 @@
 <tbody>
   <tr>
     <td><%=link_to journey.name, journey%></td>
-    <td><%=journey.departure_time.strftime('%a, %d-%b-%Y %H:%M %p') %></td>
-    <td><%=link_to journey.arrival_time.strftime('%a, %d-%b-%Y %H:%M %p') %></td>
+    <td><%=format_datetime(journey.departure_time)%></td>
+    <td><%=format_datetime(journey.arrival_time)%></td>
 
     <% max = max_seats(journey)%>
     <td><%=max%><br/></td>
