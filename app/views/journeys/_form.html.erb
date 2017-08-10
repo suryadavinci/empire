@@ -14,42 +14,34 @@
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name, id: :journey_name %>
-    <!-- <%= form.collection_select :bus_id, @buses, :id, :name , id: :journey_bus_id %> -->
 
   </div>
 
   <div class="field">
     <%= form.label :bus_id %>
-    <!-- <%= form.text_field :bus_id, id: :journey_bus_id %> -->
     <%= form.collection_select :bus_id, @buses, :id, :name , id: :journey_bus_id %>
 
   </div>
 
-  <div class="field">
-    <%= form.label :journey_date %>
-    <%= form.date_select :journey_date, id: :journey_journey_date %>
-  </div>
 
   <div class="field">
     <%= form.label :departure_time %>
-    <%= form.time_select :departure_time, id: :journey_departure_time %>
+    <%= form.datetime_select :departure_time, id: :journey_departure_time %>
   </div>
 
   <div class="field">
     <%= form.label :arrival_time %>
-    <%= form.time_select :arrival_time, id: :journey_arrival_time %>
+    <%= form.datetime_select :arrival_time, id: :journey_arrival_time %>
   </div>
 
   <div class="field">
     <%= form.label :from_id %>
-    <!-- <%= form.text_field :from_id, id: :journey_from_id %> -->
     <%= form.collection_select :from_id, @destinations, :id, :name , id: :journey_from_id %>
 
   </div>
 
   <div class="field">
     <%= form.label :to_id %>
-    <!-- <%= form.text_field :to_id, id: :journey_to_id %> -->
     <%= form.collection_select :to_id, @destinations, :id, :name , id: :journey_to_id %>
 
   </div>

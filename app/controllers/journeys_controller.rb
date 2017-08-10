@@ -9,6 +9,10 @@ class JourneysController < ApplicationController
     else
       @journeys = Journey.where(journey_params)
     end
+    if @journeys.empty?
+      flash[:warning] ="No Travels/Busses found"
+      redirect_to root_path
+    end
     #redirect_to request.referrer
     #render root_path
     #render 'static_pages/home'
@@ -18,6 +22,7 @@ class JourneysController < ApplicationController
   # GET /journeys/1
   # GET /journeys/1.json
   def show
+    @booking = @journey.bookings.build
   end
 
   # GET /journeys/new
@@ -29,6 +34,8 @@ class JourneysController < ApplicationController
 
   # GET /journeys/1/edit
   def edit
+    @buses = Bus.all
+    @destinations = Destination.all
   end
 
   # POST /journeys
@@ -74,6 +81,10 @@ class JourneysController < ApplicationController
     end
   end
 
+  def book
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_journey
@@ -82,6 +93,6 @@ class JourneysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def journey_params
-      params.require(:journey).permit(:name, :bus_id, :journey_date, :departure_time, :arrival_time, :from_id, :to_id)
+      params.require(:journey).permit(:name, :bus_id, :departure_time, :arrival_time, :from_id, :to_id)
     end
 end

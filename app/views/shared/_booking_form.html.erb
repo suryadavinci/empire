@@ -1,0 +1,21 @@
+<%= form_with(model: @booking, local: true) do |form| %>
+  <% if @booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+      <ul>
+      <% @booking.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+      <%= form.hidden_field :journey_id, id: :booking_journey_id, value: @journey.id %>
+
+  <div class="field">
+    <%= form.label :seats_count %>
+    <%= form.number_field :seats_count, id: :booking_seats_count %>
+  </div>
+  <div class="actions">
+    <%= form.submit "Book"%>
+  </div>
+<% end %>

@@ -5,19 +5,16 @@
   <%= @journey.bus.name %>
 </p>
 
-<p>
-  <strong>Journey date:</strong>
-  <%= @journey.journey_date %>
-</p>
+
 
 <p>
   <strong>Departure time:</strong>
-  <%= @journey.departure_time %>
+  <%= @journey.departure_time.strftime('%a, %d-%b-%Y %H:%M %p') %>
 </p>
 
 <p>
   <strong>Arrival time:</strong>
-  <%= @journey.arrival_time %>
+  <%= @journey.arrival_time.strftime('%a, %d-%b-%Y %H:%M %p') %>
 </p>
 
 <p>
@@ -30,5 +27,16 @@
   <%= @journey.to.name %>
 </p>
 
-<%= link_to 'Edit', edit_journey_path(@journey) %> |
-<%= link_to 'Back', journeys_path %>
+<% max = max_seats(@journey)%>
+
+
+<p>
+  <strong>Booked Seats:</strong>
+  <%= max %>
+</p>
+
+<p>
+  <strong>Free Seats:</strong>
+  <%= free_seats(@journey, max) %>
+</p>
+<%= render '/shared/booking_form' %>

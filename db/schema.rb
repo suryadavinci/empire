@@ -36,21 +36,10 @@ ActiveRecord::Schema.define(version: 20170809072530) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "jokings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "journey_id"
-    t.bigint "user_id"
-    t.integer "seats_count"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["journey_id"], name: "index_jokings_on_journey_id"
-    t.index ["user_id"], name: "index_jokings_on_user_id"
-  end
-
   create_table "journeys", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "bus_id"
-    t.date "journey_date"
-    t.time "departure_time"
-    t.time "arrival_time"
+    t.datetime "departure_time"
+    t.datetime "arrival_time"
     t.bigint "from_id"
     t.bigint "to_id"
     t.datetime "created_at", null: false
@@ -74,7 +63,5 @@ ActiveRecord::Schema.define(version: 20170809072530) do
 
   add_foreign_key "bookings", "journeys"
   add_foreign_key "bookings", "users"
-  add_foreign_key "jokings", "journeys"
-  add_foreign_key "jokings", "users"
   add_foreign_key "journeys", "buses"
 end

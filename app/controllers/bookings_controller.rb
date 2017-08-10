@@ -30,9 +30,12 @@ class BookingsController < ApplicationController
     #@available_seats
     p booking_params
     @booking = current_user.bookings.build(booking_params)
+
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
+
+        flash[:success] = "Booking Successful!!!"
+        format.html { redirect_to @booking}
         format.json { render :show, status: :created, location: @booking }
       else
         format.html { render :new }
@@ -46,7 +49,8 @@ class BookingsController < ApplicationController
   def update
     respond_to do |format|
       if @booking.update(booking_params)
-        format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
+        flash[:success] = "Booking Successful"
+        format.html { redirect_to @booking}
         format.json { render :show, status: :ok, location: @booking }
       else
         format.html { render :edit }
@@ -71,8 +75,11 @@ class BookingsController < ApplicationController
       @booking = Booking.find(params[:id])
     end
 
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
       params.require(:booking).permit(:journey_id, :seats_count)
     end
+
+
 end

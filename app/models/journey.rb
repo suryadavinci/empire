@@ -7,6 +7,8 @@ class Journey < ApplicationRecord
   # has_one :to, class_name: "Destination"
   validate :from_to_equivalence
   #validate :time_overlap
+
+  has_many :bookings
   private
     def from_to_equivalence
 
