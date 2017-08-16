@@ -1,23 +1,36 @@
 <h1>Booking Summary</h1>
 <p>
-  <strong>Journey:</strong>
+  <strong>Travels:</strong>
   <%= @booking.journey.name%>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @booking.journey.from %>
+  <%= @booking.user.name %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @booking.journey.to %>
+  <strong>From:</strong>
+  <%= @booking.journey.from.name %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @booking.journey.to.name %>
+</p>
+
+
+<p>
+  <strong>Departure Time:</strong>
+  <%= format_datetime(@booking.journey.departure_time) %>
+</p>
+
+<p>
+  <strong>Arrival Time:</strong>
+  <%= format_datetime(@booking.journey.arrival_time )%>
 </p>
 
 <p>
   <strong>Seats count:</strong>
   <%= @booking.seats_count %>
 </p>
-
-<%= link_to 'Edit', edit_booking_path(@booking) %> |
-<%= link_to 'Back', bookings_path %>

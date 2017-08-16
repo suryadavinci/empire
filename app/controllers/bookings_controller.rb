@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
   def index
-    @bookings = Booking.all
+    @bookings = current_user.bookings.all
   end
 
   # GET /bookings/1
@@ -49,7 +49,7 @@ class BookingsController < ApplicationController
   def update
     respond_to do |format|
       if @booking.update(booking_params)
-        flash[:success] = "Booking Successful"
+        flash[:success] = "Booking Updated Successful"
         format.html { redirect_to @booking}
         format.json { render :show, status: :ok, location: @booking }
       else
@@ -64,7 +64,8 @@ class BookingsController < ApplicationController
   def destroy
     @booking.destroy
     respond_to do |format|
-      format.html { redirect_to bookings_url, notice: 'Booking was successfully destroyed.' }
+      flash[:success] = "#{booking.name} Destroyed Successfully."
+      format.html { redirect_to bookings_url}
       format.json { head :no_content }
     end
   end

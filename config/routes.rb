@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
   resources :bookings
-  resources :journeys
+  resources :journeys do
+    collection do
+      get :search
+    end
+  end
   resources :destinations
   resources :buses
   root 'static_pages#home'

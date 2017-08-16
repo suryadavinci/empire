@@ -16,7 +16,8 @@
   <tbody>
     <% @bookings.each do |booking| %>
       <tr>
-        <td><%= booking.journey.name %></td>
+        <td><%= link_to booking.journey.name, booking %></td>
+
         <td><%= booking.seats_count %></td>
         <td><%= format_datetime(booking.journey.arrival_time) %></td>
         <td><%= format_datetime(booking.journey.departure_time) %></td>

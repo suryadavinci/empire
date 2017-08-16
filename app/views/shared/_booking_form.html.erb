@@ -12,7 +12,7 @@
       <%= form.hidden_field :journey_id, id: :booking_journey_id, value: @journey.id %>
 
   <div class="field">
-    <%= form.label :seats_count %>
+    <%= form.label "Seats Count (Enter the number of seats to Book)" %>
     <%= form.number_field :seats_count, id: :booking_seats_count %>
   </div>
   <div class="actions">

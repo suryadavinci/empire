@@ -1,4 +1,4 @@
-<%= form_for(@journey , method: :get) do |form| %>
+<%= form_for(@journey , method: :get,:url => { :action => :search, :controller => :journeys}) do |form| %>
   <div class="field">
     <%= form.label :from_id %>
     <!-- <%= form.text_field :bus_id, id: :journey_bus_id %> -->
@@ -15,20 +15,14 @@
   </div>
 
 
+    <!-- <div class="field">
+      <%= form.label :departure_time %>
+      <%= form.datetime_select :departure_time, id: :journey_departure_time %>
+    </div> -->
+
+
   <%= form.submit "Search",  class: "btn btn-primary" %>
 <% end %>
-
-<script>
-function witness(){
-    $("#fruit2 option").each(function(){
-        if($("#fruit1 option:selected").val() == $(this).val())
-            $(this).attr("disabled", "disabled");
-        else
-            $(this).removeAttr("disabled");
-    });
-}
-</script>
-
 
 
 <!--

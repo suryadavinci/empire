@@ -9,7 +9,6 @@ class User < ApplicationRecord
             format: {with: VALID_PHONE}, uniqueness: true
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
-  has_many :jokings
   has_many :bookings
 
 end

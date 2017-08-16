@@ -1,6 +1,6 @@
 class BusesController < ApplicationController
   before_action :set_bus, only: [:show, :edit, :update, :destroy]
-
+  before_action :admin_user
   # GET /buses
   # GET /buses.json
   def index
@@ -28,7 +28,8 @@ class BusesController < ApplicationController
 
     respond_to do |format|
       if @bus.save
-        format.html { redirect_to @bus, notice: 'Bus was successfully created.' }
+        flash[:success] ="#{@bus.name} Created Successfully"
+        format.html { redirect_to @bus}
         format.json { render :show, status: :created, location: @bus }
       else
         format.html { render :new }
@@ -42,7 +43,9 @@ class BusesController < ApplicationController
   def update
     respond_to do |format|
       if @bus.update(bus_params)
-        format.html { redirect_to @bus, notice: 'Bus was successfully updated.' }
+        flash[:success] = "#{@bus.name} Updated Successfully."
+
+        format.html { redirect_to @bus}
         format.json { render :show, status: :ok, location: @bus }
       else
         format.html { render :edit }
@@ -56,7 +59,9 @@ class BusesController < ApplicationController
   def destroy
     @bus.destroy
     respond_to do |format|
-      format.html { redirect_to buses_url, notice: 'Bus was successfully destroyed.' }
+      flash[:success] = "#{@bus.name} Destroyed Successfully."
+
+      format.html { redirect_to buses_url }
       format.json { head :no_content }
     end
   end
@@ -70,5 +75,9 @@ class BusesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def bus_params
       params.require(:bus).permit(:name, :max_seats)
+    end
+
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
 end

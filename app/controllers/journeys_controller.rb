@@ -1,18 +1,20 @@
 class JourneysController < ApplicationController
   before_action :set_journey, only: [:show, :edit, :update, :destroy]
-
+  before_action :admin_user, only: [ :edit, :update, :destroy]
   # GET /journeys
   # GET /journeys.json
   def index
-    if(journey_params.empty?)
+    p params
+  #  if(params.empty?)
       @journeys = Journey.all
-    else
-      @journeys = Journey.where(journey_params)
-    end
+  #  else
+  #    @journeys = Journey.where(journey_params)
+  #  end
     if @journeys.empty?
       flash[:warning] ="No Travels/Busses found"
       redirect_to root_path
     end
+  #  p "its here"
     #redirect_to request.referrer
     #render root_path
     #render 'static_pages/home'
@@ -44,7 +46,9 @@ class JourneysController < ApplicationController
     @journey = Journey.new(journey_params)
     respond_to do |format|
       if @journey.save
-        format.html { redirect_to @journey, notice: 'Journey was successfully created.' }
+        flash[:success]="#{@journey.name} was successfully created"
+
+        format.html { redirect_to @journey}
         format.json { render :show, status: :created, location: @journey }
       else
 
@@ -62,7 +66,8 @@ class JourneysController < ApplicationController
   def update
     respond_to do |format|
       if @journey.update(journey_params)
-        format.html { redirect_to @journey, notice: 'Journey was successfully updated.' }
+        flash[:success]="#{@journey.name} was successfully updated"
+        format.html { redirect_to @journey }
         format.json { render :show, status: :ok, location: @journey }
       else
         format.html { render :edit }
@@ -76,13 +81,18 @@ class JourneysController < ApplicationController
   def destroy
     @journey.destroy
     respond_to do |format|
-      format.html { redirect_to journeys_url, notice: 'Journey was successfully destroyed.' }
+      flash[:success]="#{@journey.name} was successfully destroyed"
+
+      format.html { redirect_to journeys_url }
       format.json { head :no_content }
     end
   end
 
-  def book
-
+  def search
+    #@journeys = Journey.where('departure_time > ?', search_params[:departure_time])
+    puts "printing params"
+    puts params
+    @journeys = Journey.where(search_params)
   end
 
   private
@@ -93,6 +103,21 @@ class JourneysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def journey_params
+
       params.require(:journey).permit(:name, :bus_id, :departure_time, :arrival_time, :from_id, :to_id)
+    end
+
+    def search_params
+
+      # params[:departure_time] = Time.new(params["departure_time(1i)"].to_i, params["departure_time(2i)"].to_i,
+      #                         params["departure_time(3i)"].to_i, params["departure_time(4i)"].to_i,
+      #                         params["departure_time(5i)"].to_i)
+      #params[:departure_time] = params[:departure_date].to_datetime
+      # params[:departure_time]
+      params.require(:journey).permit(:from_id, :to_id)
+    end
+
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
 end

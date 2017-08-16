@@ -1,5 +1,6 @@
 class DestinationsController < ApplicationController
   before_action :set_destination, only: [:show, :edit, :update, :destroy]
+  before_action :admin_user
 
   # GET /destinations
   # GET /destinations.json
@@ -28,7 +29,8 @@ class DestinationsController < ApplicationController
 
     respond_to do |format|
       if @destination.save
-        format.html { redirect_to @destination, notice: 'Destination was successfully created.' }
+        flash[:success] ="#{@destination.name} Created Successfully"
+        format.html { redirect_to @destination}
         format.json { render :show, status: :created, location: @destination }
       else
         format.html { render :new }
@@ -42,7 +44,8 @@ class DestinationsController < ApplicationController
   def update
     respond_to do |format|
       if @destination.update(destination_params)
-        format.html { redirect_to @destination, notice: 'Destination was successfully updated.' }
+        flash[:success] ="#{@destination.name} Updated Successfully"
+        format.html { redirect_to @destination }
         format.json { render :show, status: :ok, location: @destination }
       else
         format.html { render :edit }
@@ -70,5 +73,9 @@ class DestinationsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def destination_params
       params.require(:destination).permit(:name, :code)
+    end
+
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
 end
