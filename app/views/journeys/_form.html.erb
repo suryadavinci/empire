@@ -46,6 +46,12 @@
 
   </div>
 
+  <div class="field">
+    <%= form.label :cost %>
+    <%= form.select :cost, options_for_select(0..500), id: :journey_cost %>
+
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

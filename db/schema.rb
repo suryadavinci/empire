@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170823102000) do
+ActiveRecord::Schema.define(version: 20170828091433) do
 
   create_table "bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "journey_id"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20170823102000) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.integer "cost"
     t.index ["bus_id"], name: "index_journeys_on_bus_id"
     t.index ["from_id"], name: "index_journeys_on_from_id"
     t.index ["to_id"], name: "index_journeys_on_to_id"
@@ -63,7 +64,5 @@ ActiveRecord::Schema.define(version: 20170823102000) do
     t.index ["phone"], name: "index_users_on_phone", unique: true
   end
 
-  add_foreign_key "bookings", "journeys"
-  add_foreign_key "bookings", "users"
   add_foreign_key "journeys", "buses"
 end

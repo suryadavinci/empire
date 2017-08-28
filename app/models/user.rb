@@ -17,15 +17,18 @@ class User < ApplicationRecord
 
 
 
-  after_create :create_tenant
+ after_create :create_tenant
 
    def create_tenant
 
 #     s_domain = email.split("@").last.split(".").first
      puts "************ #{subdomain} **************"
-     if(User.where(subdomain: subdomain).count <= 1 && !subdomain.nil? && !subdomain.empty? )
-      # subdomain = s_domain
+     if(Apartment::Tenant.current == "empire_development" && User.where(subdomain: subdomain).count <= 1 && !subdomain.nil? && !subdomain.empty? )
+      #subdomain = s_domain
+
        Apartment::Tenant.create(subdomain)
+      # Apartment::Tenant.switch!('tenant_name')
+
      end
    end
 end

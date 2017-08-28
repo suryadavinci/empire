@@ -34,3 +34,19 @@
   <strong>Seats count:</strong>
   <%= @booking.seats_count %>
 </p>
+
+<p>
+  <strong>Total Cost:</strong>
+  <%= @booking.journey.cost * @booking.seats_count %>
+</p>
+
+<p>
+  <strong>
+
+    <%= link_to 'Cancel Booking', booking_path, :confirm => 'Are you sure you want to destroy your account?', :method => :delete %>
+
+    
+  </strong>
+
+
+</p>

@@ -62,9 +62,10 @@ class BookingsController < ApplicationController
   # DELETE /bookings/1
   # DELETE /bookings/1.json
   def destroy
+    booking = @booking
     @booking.destroy
     respond_to do |format|
-      flash[:success] = "#{booking.name} Destroyed Successfully."
+      flash[:success] = "Your Booking was Cancelled Successfully"
       format.html { redirect_to bookings_url}
       format.json { head :no_content }
     end

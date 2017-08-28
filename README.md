@@ -43,3 +43,24 @@ For more information, see the
 
 
 End of Day 2 ====7.3 Unsuccessful signups
+
+
+rails console
+Apartment.tenant_names.each do |name|
+  Apartment::Tenant.drop(name)
+end
+
+exit
+rails db:reset
+
+
+rails db:drop
+rails db:create
+rails db:migrate
+
+rails console
+
+Apartment::Tenant.create("m")
+Apartment::Tenant.create("gmail")
+
+rails db:seed

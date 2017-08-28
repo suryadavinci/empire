@@ -3,6 +3,7 @@
     <td><%=link_to journey.name, journey%></td>
     <td><%=format_datetime(journey.departure_time)%></td>
     <td><%=format_datetime(journey.arrival_time)%></td>
+    <td><%= journey.cost %></td>
 
     <% max = max_seats(journey)%>
     <td><%=max%><br/></td>

@@ -104,7 +104,7 @@ class JourneysController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def journey_params
 
-      params.require(:journey).permit(:name, :bus_id, :departure_time, :arrival_time, :from_id, :to_id)
+      params.require(:journey).permit(:name, :bus_id, :departure_time, :arrival_time, :from_id, :to_id, :cost)
     end
 
     def search_params
