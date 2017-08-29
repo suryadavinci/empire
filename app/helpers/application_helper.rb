@@ -19,4 +19,8 @@ module ApplicationHelper
   def format_datetime(datetime)
     datetime.strftime('%a, %d-%b %H:%M %p')
   end
+
+  def passenger_details(booking)
+    booking.seats_count - booking.passengers.count
+  end
 end

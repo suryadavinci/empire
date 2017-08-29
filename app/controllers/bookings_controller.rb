@@ -10,6 +10,10 @@ class BookingsController < ApplicationController
   # GET /bookings/1
   # GET /bookings/1.json
   def show
+    @passengers = @booking.passengers
+    # if(@passengers.count == 0)
+    #   @passengers = []
+    # end
   end
 
   # GET /bookings/new
@@ -30,11 +34,9 @@ class BookingsController < ApplicationController
     #@available_seats
     p booking_params
     @booking = current_user.bookings.build(booking_params)
-
     respond_to do |format|
       if @booking.save
-
-        flash[:success] = "Booking Successful!!!"
+        flash[:success] = "Booking Successful!!! Now enter passenger details."
         format.html { redirect_to @booking}
         format.json { render :show, status: :created, location: @booking }
       else

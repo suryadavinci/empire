@@ -42,11 +42,24 @@
 
 <p>
   <strong>
-
     <%= link_to 'Cancel Booking', booking_path, :confirm => 'Are you sure you want to destroy your account?', :method => :delete %>
-
-    
   </strong>
-
-
 </p>
+
+<% if @passengers.any? %>
+<div class="jumbotron">
+  <p><strong>Passenger Details</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <%= render @passengers %>
+  </table>
+</div>
+<% end %>
+<% if passenger_details(@booking) > 0 %>
+<%= render 'shared/passenger_form' %>
+<% end %>

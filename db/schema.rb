@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170828091433) do
+ActiveRecord::Schema.define(version: 20170829073728) do
 
   create_table "bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "journey_id"
@@ -51,6 +51,15 @@ ActiveRecord::Schema.define(version: 20170828091433) do
     t.index ["to_id"], name: "index_journeys_on_to_id"
   end
 
+  create_table "passengers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.decimal "age", precision: 10
+    t.bigint "booking_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_passengers_on_booking_id"
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "email"
@@ -65,4 +74,5 @@ ActiveRecord::Schema.define(version: 20170828091433) do
   end
 
   add_foreign_key "journeys", "buses"
+  add_foreign_key "passengers", "bookings"
 end
