@@ -1,4 +1,12 @@
-<p id="notice"><%= notice %></p>
+
+<%= form_tag destinations_path , method: :get do %>
+  <p>
+    <%= text_field_tag :q, params[:q] %>
+    <%= submit_tag "Search", name: nil %>
+  </p>
+<%  end %>
+
+
 
 <h1>Destinations</h1>
 

@@ -6,7 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 
-
+#ELASTICSEARCH
+gem 'searchkick'
 #APARTMENT
 gem 'apartment', '~> 2.0'
 
