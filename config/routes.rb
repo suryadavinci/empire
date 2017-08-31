@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   resources :bookings
   resources :journeys do
     collection do
-      get :search
+      post :search
     end
   end
-  resources :destinations
+  resources :destinations 
   resources :buses
   root 'static_pages#home'
   get '/help',      to: 'static_pages#help'

@@ -92,7 +92,22 @@ class JourneysController < ApplicationController
     #@journeys = Journey.where('departure_time > ?', search_params[:departure_time])
     puts "printing params"
     puts params
-    @journeys = Journey.where(search_params)
+    puts params[:departure_time]
+    puts search_params[:from_id]
+    #date = search_params[:departure_time]+1
+    #time = Time.zone.at(date.to_time).to_datetime
+
+  #  search_params[:departure_time] = time
+  #  puts search_params[:departure_time]
+    #puts Date.parse(params[:departure_time].to_s)
+    #@journeys = Journey.where(search_params)
+  #  @journeys = Journey.where(from_id: search_params[:from_id], to_id: search_params[:to_id]).where("departure_time >= ?", search_params[:departure_time])
+    #.where("departure_time < ?", (search_params[:departure_time]+1))
+    #where("user_id = ? AND notetype = ? AND date > ?", current_user.id, p[:note_type], p[:date]).
+     #order('date ASC, created_at ASC')
+
+     @journeys = Journey.where("from_id = ? and to_id = ? and  departure_time >= ? ",search_params[:from_id], search_params[:to_id], search_params[:departure_time])
+
   end
 
   private
@@ -114,7 +129,7 @@ class JourneysController < ApplicationController
       #                         params["departure_time(5i)"].to_i)
       #params[:departure_time] = params[:departure_date].to_datetime
       # params[:departure_time]
-      params.require(:journey).permit(:from_id, :to_id)
+      params.require(:journey).permit(:from_id, :to_id,:departure_time)
     end
 
     def admin_user
