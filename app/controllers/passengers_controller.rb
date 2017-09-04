@@ -25,12 +25,13 @@ class PassengersController < ApplicationController
   # POST /passengers.json
   def create
     @passenger = Passenger.new(passenger_params)
-
     respond_to do |format|
       if @passenger.save
-
         @passengers = @passenger.booking.passengers
-        puts "#{@passengers.count} count "
+        if (@passengers.count == @passenger.booking.seats_count.to_i)
+            @passenger.booking.status = "Completed"
+            @passenger.booking.save
+          end
         flash[:success] = "Passenger was successfully Entered."
         format.html { redirect_to @passenger.booking}
         format.json { render :show, status: :created, location: @passenger }

@@ -4,9 +4,17 @@ class JourneysController < ApplicationController
   # GET /journeys
   # GET /journeys.json
   def index
-    p params
   #  if(params.empty?)
+
       @journeys = Journey.all
+      #            if search_params
+      #              Journey.where("from_id = ? and to_id = ? and  departure_time >= ? ",search_params[:from_id], search_params[:to_id], search_params[:departure_time])
+      #            else
+
+      #            end
+
+      #@destinations = Destination.order(:name)
+      #@journey = Journey.new
   #  else
   #    @journeys = Journey.where(journey_params)
   #  end
@@ -107,7 +115,9 @@ class JourneysController < ApplicationController
      #order('date ASC, created_at ASC')
 
      @journeys = Journey.where("from_id = ? and to_id = ? and  departure_time >= ? ",search_params[:from_id], search_params[:to_id], search_params[:departure_time])
+     #render @journeys
 
+    # redirect_to root_path
   end
 
   private

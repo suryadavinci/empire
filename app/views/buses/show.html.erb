@@ -10,5 +10,15 @@
   <%= @bus.max_seats %>
 </p>
 
+<p>
+  <%= image_tag @bus.picture.url if @bus.picture? %>
+</p>
+<span class="timestamp">
+    Posted <%= time_ago_in_words(@bus.created_at) %> ago.
+  </span>
+
+<%= link_to "delete", @bus, method: :delete,
+                                   data: { confirm: "You sure?" } %>
+
 <%= link_to 'Edit', edit_bus_path(@bus) %> |
 <%= link_to 'Back', buses_path %>

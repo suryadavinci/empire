@@ -13,7 +13,7 @@ module ApplicationHelper
   end
 
   def free_seats(journey, max)
-    free_seats = max - Booking.where(journey_id: journey.id).sum(:seats_count)
+    free_seats = max - Booking.where(journey_id: journey.id, status: "Completed").sum(:seats_count)
   end
 
   def format_datetime(datetime)

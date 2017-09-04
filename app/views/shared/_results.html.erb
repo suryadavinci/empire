@@ -1,8 +1,22 @@
 <% if @journeys.any? %>
-<h3>Micropost Feed</h3>
+<h3>Journeys</h3>
 
-  <ol class="journeys">
+  <div class="jumbotron">
+    <table>
+      <thead>
+        <tr>
+          <th>Journey</th>
+          <th>Departure date/time</th>
+          <th>Arrival time</th>
+          <th>Cost</th>
+
+          <th>Max Seats</th>
+          <th>Free Seats</th>
+        </tr>
+      </thead>
     <%= render @journeys %>
-  </ol>
+  </table>
+  </div>
+
 
 <% end %>

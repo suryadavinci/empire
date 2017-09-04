@@ -41,6 +41,11 @@
 </p>
 
 <p>
+  <strong>Booking Status:</strong>
+  <%= @booking.status %>
+</p>
+
+<p>
   <strong>
     <%= link_to 'Cancel Booking', booking_path, :confirm => 'Are you sure you want to destroy your account?', :method => :delete %>
   </strong>

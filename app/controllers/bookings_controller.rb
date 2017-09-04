@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
   # GET /bookings/1
   # GET /bookings/1.json
   def show
+
     @passengers = @booking.passengers
     # if(@passengers.count == 0)
     #   @passengers = []
@@ -33,7 +34,9 @@ class BookingsController < ApplicationController
     #@available_seats = Bus.find(:id Journey.find_by(id: booking_params[:journey_id]).bus_id).max_seats -  Booking.where(journey_id: booking_params[:journey_id]).sum(:seats_count)
     #@available_seats
     p booking_params
+#    booking_params[:status] = "Pending"
     @booking = current_user.bookings.build(booking_params)
+    @booking.status ="Pending"
     respond_to do |format|
       if @booking.save
         flash[:success] = "Booking Successful!!! Now enter passenger details."

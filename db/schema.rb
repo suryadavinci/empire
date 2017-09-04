@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170829073728) do
+ActiveRecord::Schema.define(version: 20170904094104) do
 
   create_table "bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "journey_id"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20170829073728) do
     t.integer "seats_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
     t.index ["journey_id"], name: "index_bookings_on_journey_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(version: 20170829073728) do
     t.integer "max_seats"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "picture"
   end
 
   create_table "destinations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
