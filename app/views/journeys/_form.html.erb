@@ -1,4 +1,6 @@
-<%= form_with(model: journey, local: true) do |form| %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: journey, local: true) do |form| %>
   <% if journey.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(journey.errors.count, "error") %> prohibited this journey from being saved:</h2>
@@ -24,15 +26,34 @@
   </div>
 
 
-  <div class="field">
-    <%= form.label :departure_time %>
-    <%= form.datetime_select :departure_time, id: :journey_departure_time %>
-  </div>
 
-  <div class="field">
-    <%= form.label :arrival_time %>
-    <%= form.datetime_select :arrival_time, id: :journey_arrival_time %>
-  </div>
+
+                  <div  class='input-group date' id='datetimepicker1'>
+                    <%= form.label :departure_time %>
+                    <%= form.text_field :departure_time, class: "field", id: :journey_departure_time %>
+                    <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                  </div>
+
+              <script type="text/javascript">
+              $(function () {
+                  $('#datetimepicker1').datetimepicker();
+              });
+              $(function () {
+                  $('#datetimepicker2').datetimepicker();
+              });
+              </script>
+
+
+              <div  class='input-group date' id='datetimepicker2'>
+                <%= form.label :arrival_time %>
+                <%= form.text_field :arrival_time, class: "field", id: :journey_arrival_time %>
+                <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+              </div>
+
 
   <div class="field">
     <%= form.label :from_id %>
@@ -56,3 +77,6 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+</div>
+</div>

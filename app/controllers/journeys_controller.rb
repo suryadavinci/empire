@@ -7,6 +7,7 @@ class JourneysController < ApplicationController
   #  if(params.empty?)
 
       @journeys = Journey.all
+      #@journeys = Journey.all.includes(:bus)
       #            if search_params
       #              Journey.where("from_id = ? and to_id = ? and  departure_time >= ? ",search_params[:from_id], search_params[:to_id], search_params[:departure_time])
       #            else
@@ -20,7 +21,7 @@ class JourneysController < ApplicationController
   #  end
     if @journeys.empty?
       flash[:warning] ="No Travels/Busses found"
-      redirect_to root_path
+      #redirect_to root_path
     end
   #  p "its here"
     #redirect_to request.referrer

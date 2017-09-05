@@ -55,6 +55,8 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap3-datetimepicker-rails (4.17.47)
+      momentjs-rails (>= 2.8.1)
     builder (3.2.3)
     byebug (9.0.6)
     capybara (2.14.4)
@@ -260,6 +262,8 @@ GEM
     mini_magick (4.7.0)
     mini_portile2 (2.2.0)
     minitest (5.10.3)
+    momentjs-rails (2.17.1)
+      railties (>= 3.1)
     multi_json (1.12.1)
     multipart-post (2.0.0)
     mysql2 (0.4.8)
@@ -367,6 +371,7 @@ DEPENDENCIES
   bcrypt (= 3.1.11)
   bootstrap-datepicker-rails
   bootstrap-sass (= 3.3.7)
+  bootstrap3-datetimepicker-rails (~> 4.17.47)
   byebug
   capybara (~> 2.13)
   carrierwave (= 1.1.0)
@@ -376,6 +381,7 @@ DEPENDENCIES
   jquery-rails (= 4.3.1)
   listen (>= 3.0.5, < 3.2)
   mini_magick (= 4.7.0)
+  momentjs-rails (>= 2.9.0)
   mysql2
   pg
   puma (~> 3.7)

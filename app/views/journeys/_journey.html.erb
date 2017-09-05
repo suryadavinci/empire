@@ -7,6 +7,10 @@
 
     <% max = max_seats(journey)%>
     <td><%=max%><br/></td>
-    <td><%=free_seats(journey, max)%><br/></td>
+    <td><%=free_seats(journey, max)%></td>
+    <td><%= link_to 'Delete', journey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+    <!-- <td></td> -->
+
   </tr>
 </tbody>
