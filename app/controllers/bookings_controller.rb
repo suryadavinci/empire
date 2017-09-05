@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
   def index
-    @bookings = current_user.bookings.all
+    @bookings = current_user.bookings.all.includes(:journey)
   end
 
   # GET /bookings/1

@@ -6,8 +6,8 @@ class JourneysController < ApplicationController
   def index
   #  if(params.empty?)
 
-      @journeys = Journey.all
-      #@journeys = Journey.all.includes(:bus)
+      #@journeys = Journey.all
+      @journeys = Journey.all.includes(:bus)
       #            if search_params
       #              Journey.where("from_id = ? and to_id = ? and  departure_time >= ? ",search_params[:from_id], search_params[:to_id], search_params[:departure_time])
       #            else
@@ -114,8 +114,9 @@ class JourneysController < ApplicationController
     #.where("departure_time < ?", (search_params[:departure_time]+1))
     #where("user_id = ? AND notetype = ? AND date > ?", current_user.id, p[:note_type], p[:date]).
      #order('date ASC, created_at ASC')
+    # @journeys = Journey.where("from_id = ? and to_id = ? and  departure_time >= ? ",search_params[:from_id], search_params[:to_id], Date.parse(search_params[:departure_time]).beginning_of_day)
 
-     @journeys = Journey.where("from_id = ? and to_id = ? and  departure_time >= ? ",search_params[:from_id], search_params[:to_id], search_params[:departure_time])
+     @journeys = Journey.where("from_id = ? and to_id = ? and  departure_time >= ? and departure_time < ? ",search_params[:from_id], search_params[:to_id], DateTime.parse(search_params[:departure_time]).beginning_of_day, Date.parse(search_params[:departure_time]).end_of_day)
      #render @journeys
 
     # redirect_to root_path
