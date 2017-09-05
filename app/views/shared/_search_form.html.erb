@@ -15,8 +15,9 @@
   </div>
 
 
-  <%= form.text_field :departure_time, data:{ provide:'datepicker' } , id: :journey_departure_time%>
+  <!-- <%= form.text_field :departure_time, data:{ provide:'datepicker' }  , id: :journey_departure_time%> -->
 
+  <%= form.text_field :departure_time, class: "datepicker", id: :journey_departure_time%>
 
 
     <!-- <div class="field">
@@ -28,6 +29,15 @@
   <%= form.submit "Search",  class: "btn btn-primary" %>
 <% end %>
 
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    // $('.datepicker').datepicker();
+    $('.datepicker').datepicker({format: 'yyyy-mm-dd'});
+
+  });
+</script>
 
 <!--
 <div class="row">

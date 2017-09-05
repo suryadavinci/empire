@@ -3,11 +3,13 @@ class Journey < ApplicationRecord
   belongs_to :bus
   belongs_to :from, class_name: "Destination"
   belongs_to :to, class_name: "Destination"
-  # has_one :from, class_name: "Destination"
-  # has_one :to, class_name: "Destination"
+
+
+  validates :arrival_time, presence: true
+  validates :departure_time, presence: true 
   validate :from_to_equivalence
   #validate :time_overlap
-  
+
   has_many :bookings, dependent: :destroy
   private
     def from_to_equivalence

@@ -38,10 +38,20 @@
 
               <script type="text/javascript">
               $(function () {
-                  $('#datetimepicker1').datetimepicker();
+                  $('#datetimepicker1').datetimepicker({
+              //  viewMode: 'years',
+               format: 'YYYY/MM/DD hh:mm A'
+           });
               });
               $(function () {
-                  $('#datetimepicker2').datetimepicker();
+                  $('#datetimepicker2').datetimepicker({
+                    format: 'YYYY/MM/DD hh:mm A'
+
+                  });
+
+
+
+
               });
               </script>
 
