@@ -28,7 +28,7 @@
 
 
 
-                  <div  class='input-group date' id='datetimepicker1'>
+                  <div  class='input-group date' id='datetimepicker6'>
                     <%= form.label :departure_time %>
                     <%= form.text_field :departure_time, class: "field", id: :journey_departure_time %>
                     <span class="input-group-addon">
@@ -36,27 +36,9 @@
                         </span>
                   </div>
 
-              <script type="text/javascript">
-              $(function () {
-                  $('#datetimepicker1').datetimepicker({
-              //  viewMode: 'years',
-               format: 'YYYY/MM/DD hh:mm A'
-           });
-              });
-              $(function () {
-                  $('#datetimepicker2').datetimepicker({
-                    format: 'YYYY/MM/DD hh:mm A'
-
-                  });
 
 
-
-
-              });
-              </script>
-
-
-              <div  class='input-group date' id='datetimepicker2'>
+              <div  class='input-group date' id='datetimepicker7'>
                 <%= form.label :arrival_time %>
                 <%= form.text_field :arrival_time, class: "field", id: :journey_arrival_time %>
                 <span class="input-group-addon">
@@ -90,3 +72,56 @@
 
 </div>
 </div>
+
+
+
+<script type="text/javascript">
+$(function () {
+    $('#datetimepicker1').datetimepicker({
+//  viewMode: 'years',
+ format: 'YYYY/MM/DD hh:mm A'
+});
+});
+$(function () {
+    $('#datetimepicker2').datetimepicker({
+      format: 'YYYY/MM/DD hh:mm A'
+
+    });
+
+
+
+
+});
+</script>
+<script type="text/javascript">
+    $(function () {
+
+      $('#datetimepicker6').datetimepicker({
+        format: 'YYYY/MM/DD hh:mm A'
+      });
+      $('#datetimepicker7').datetimepicker({
+        format: 'YYYY/MM/DD hh:mm A'
+      });
+
+
+      //  $('#datetimepicker6').datetimepicker();
+         $('#datetimepicker7').datetimepicker({
+             useCurrent: false //Important! See issue #1075
+         });
+
+
+
+
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+
+
+
+
+
+    });
+</script>
