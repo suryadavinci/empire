@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170904094104) do
+ActiveRecord::Schema.define(version: 20170908065229) do
 
   create_table "bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "journey_id"
@@ -19,7 +19,11 @@ ActiveRecord::Schema.define(version: 20170904094104) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status"
+    t.date "departure_date"
+    t.date "arrival_date"
+    t.bigint "transport_id"
     t.index ["journey_id"], name: "index_bookings_on_journey_id"
+    t.index ["transport_id"], name: "index_bookings_on_transport_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -62,6 +66,24 @@ ActiveRecord::Schema.define(version: 20170904094104) do
     t.index ["booking_id"], name: "index_passengers_on_booking_id"
   end
 
+  create_table "transports", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "bus_id"
+    t.bigint "from_id"
+    t.bigint "to_id"
+    t.date "start_date"
+    t.date "end_date"
+    t.time "departure_time"
+    t.time "arrival_time"
+    t.integer "recurrence"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.integer "cost"
+    t.index ["bus_id"], name: "index_transports_on_bus_id"
+    t.index ["from_id"], name: "index_transports_on_from_id"
+    t.index ["to_id"], name: "index_transports_on_to_id"
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "email"
@@ -75,6 +97,7 @@ ActiveRecord::Schema.define(version: 20170904094104) do
     t.index ["phone"], name: "index_users_on_phone", unique: true
   end
 
+  add_foreign_key "bookings", "transports"
   add_foreign_key "journeys", "buses"
   add_foreign_key "passengers", "bookings"
 end

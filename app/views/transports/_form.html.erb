@@ -1,0 +1,155 @@
+
+    <div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: transport, local: true) do |form| %>
+      <% if transport.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(transport.errors.count, "error") %> prohibited this transport from being saved:</h2>
+
+          <ul>
+          <% transport.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name, id: :transport_name %>
+      </div>
+
+      <div class="field">
+        <%= form.label :bus_id %>
+        <!-- <%= form.text_field :bus_id, id: :transport_bus_id %> -->
+        <%= form.collection_select :bus_id,  @buses , :id, :name , id: :transport_bus_id %>
+      </div>
+
+      <div class="field">
+        <%= form.label :from_id %>
+        <%= form.collection_select :from_id,  @destinations , :id, :name , id: :transport_from_id %>
+
+      </div>
+
+      <div class="field">
+        <%= form.label :to_id %>
+        <%= form.collection_select :to_id,  @destinations , :id, :name , id: :transport_to_id %>
+      </div>
+
+      <!-- <div class="field">
+        <%= form.label :start_date %>
+        <%= form.date_select :start_date, id: :transport_start_date %>
+      </div> -->
+
+      <div  class='input-group date' id='datetimepickerstart'>
+        <%= form.label :start_date %>
+        <%= form.text_field :start_date, class: "field", id: :transport_start_date %>
+        <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+      </div>
+
+      <!-- <div class="field">
+        <%= form.label :end_date %>
+        <%= form.date_select :end_date, id: :transport_end_date %>
+      </div> -->
+
+      <div  class='input-group date' id='datetimepickerend'>
+        <%= form.label :end_date %>
+        <%= form.text_field :end_date, class: "field", id: :transport_end_date %>
+        <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+      </div>
+
+
+
+      <div  class='input-group date' id='datetimepickerdeparture'>
+        <%= form.label :departure_time %>
+        <%= form.text_field :departure_time, class: "field", id: :transport_departure_time %>
+        <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+      </div>
+
+      <div  class='input-group date' id='datetimepickerarrival'>
+        <%= form.label :arrival_time %>
+        <%= form.text_field :arrival_time, class: "field", id: :transport_arrival_time %>
+        <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+      </div>
+
+
+      <div class="field">
+        <%= form.label :recurrence %>
+        <%= select( "transport", "recurrence", { "One Time" => 0, "Daily" => 1, "Weekly" => 7}) %>
+        <!-- <%= form.number_field :recurrence, id: :transport_recurrence %> -->
+      </div>
+
+      <div class="field">
+        <%= form.label :cost %>
+        <%= form.select :cost, options_for_select(0..500), id: :transport_cost %>
+
+      </div>
+
+
+      <!-- <%= form.collection_select :journey_id,  @buses , :id, :name , id: :booking_journey_id %> -->
+
+
+
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+
+      $('#datetimepickerstart').datetimepicker({
+        format: 'YYYY/MM/DD'
+      });
+      $('#datetimepickerend').datetimepicker({
+        format: 'YYYY/MM/DD'
+      });
+
+      $('#datetimepickerdeparture').datetimepicker({
+         format: 'LT'
+       });
+
+      $('#datetimepickerarrival').datetimepicker({
+        format: 'LT'
+      });
+
+      // $('#datetimepicker6').datetimepicker({
+      //   format: 'YYYY/MM/DD hh:mm A'
+      // });
+      // $('#datetimepicker7').datetimepicker({
+      //   format: 'YYYY/MM/DD hh:mm A'
+      // });
+
+
+      //  $('#datetimepicker6').datetimepicker();
+        //  $('#datetimepicker7').datetimepicker({
+        //      useCurrent: false //Important! See issue #1075
+        //  });
+        //
+        //
+        //
+        //
+        // $("#datetimepicker6").on("dp.change", function (e) {
+        //     $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        // });
+        // $("#datetimepicker7").on("dp.change", function (e) {
+        //     $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        // });
+
+
+
+
+
+    });
+</script>

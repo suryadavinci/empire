@@ -1,0 +1,22 @@
+<h1>Available Buses</h1>
+<strong> Requested Journey Date : <%= format_date(@departure_date) %></strong>
+<table>
+  <thead>
+    <tr>
+
+      <th>Transport</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Departure time</th>
+      <th>Arrival time</th>
+      <th>Recurrence</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <%= render @transports %>
+</table>
+
+<br>
+
+<%= link_to 'New Transport', new_transport_path %>

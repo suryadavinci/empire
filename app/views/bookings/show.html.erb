@@ -1,7 +1,7 @@
 <h1>Booking Summary</h1>
 <p>
   <strong>Travels:</strong>
-  <%= @booking.journey.name%>
+  <%= @booking.transport.name%>
 </p>
 
 <p>
@@ -11,23 +11,27 @@
 
 <p>
   <strong>From:</strong>
-  <%= @booking.journey.from.name %>
+  <%= @booking.transport.from.name %>
 </p>
 
 <p>
   <strong>To:</strong>
-  <%= @booking.journey.to.name %>
+  <%= @booking.transport.to.name %>
 </p>
 
+<p>
+  <strong>Departure Date:</strong>
+  <%= format_time(@booking.departure_date) %>
+</p>
 
 <p>
   <strong>Departure Time:</strong>
-  <%= format_datetime(@booking.journey.departure_time) %>
+  <%= format_time(@booking.transport.departure_time) %>
 </p>
 
 <p>
   <strong>Arrival Time:</strong>
-  <%= format_datetime(@booking.journey.arrival_time )%>
+  <%= format_time(@booking.transport.arrival_time )%>
 </p>
 
 <p>
@@ -37,7 +41,6 @@
 
 <p>
   <strong>Total Cost:</strong>
-  <%= @booking.journey.cost * @booking.seats_count %>
 </p>
 
 <p>

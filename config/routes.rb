@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :transports do
+    collection do
+      post :search
+    end
+  end
   resources :passengers
   resources :bookings
   resources :journeys do
@@ -7,7 +12,7 @@ Rails.application.routes.draw do
       post :search
     end
   end
-  resources :destinations 
+  resources :destinations
   resources :buses
   root 'static_pages#home'
   get '/help',      to: 'static_pages#help'

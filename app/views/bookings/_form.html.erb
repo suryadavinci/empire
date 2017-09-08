@@ -14,22 +14,26 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :journey_id %>
-    <!-- <%= form.text_field :journey_id, id: :booking_journey_id %> -->
-    <%= form.collection_select :journey_id, @journeys, :id, :name , id: :booking_journey_id %>
-
+    <%= form.label :transport_id %>
+    <%= form.collection_select :transport_id, @transports, :id, :name , id: :booking_transport_id %>
+<%= @transports.count %>
   </div>
-<!--
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :booking_user_id %>
-  </div> -->
+<%= select("name","id", Transport.all.collect {|d| [d.start_date, d.name]}, {include_blank: true}) %>
 
   <div class="field">
     <%= form.label :seats_count %>
     <%= form.number_field :seats_count, id: :booking_seats_count %>
   </div>
-
+  <select name="city[country_id]" id="city_country_id">
+    <optgroup label="Africa">
+      <option value="1">South Africa</option>
+      <option value="3">Somalia</option>
+    </optgroup>
+    <optgroup label="Europe">
+      <option value="7" selected="selected">Denmark</option>
+      <option value="2">Ireland</option>
+    </optgroup>
+  </select>
   <div class="actions">
     <%= form.submit %>
   </div>

@@ -1,0 +1,54 @@
+[2017-09-08T11:45:45,702][INFO ][o.e.n.Node               ] [] initializing ...
+[2017-09-08T11:45:45,810][INFO ][o.e.e.NodeEnvironment    ] [8dkHhm7] using [1] data paths, mounts [[/ (/dev/disk0s2)]], net usable_space [191.3gb], net total_space [232.9gb], spins? [unknown], types [hfs]
+[2017-09-08T11:45:45,810][INFO ][o.e.e.NodeEnvironment    ] [8dkHhm7] heap size [1.9gb], compressed ordinary object pointers [true]
+[2017-09-08T11:45:45,827][INFO ][o.e.n.Node               ] node name [8dkHhm7] derived from node ID [8dkHhm7uTuKDyIMI_HK3ug]; set [node.name] to override
+[2017-09-08T11:45:45,827][INFO ][o.e.n.Node               ] version[5.5.2], pid[841], build[b2f0c09/2017-08-14T12:33:14.154Z], OS[Mac OS X/10.11.6/x86_64], JVM[Oracle Corporation/Java HotSpot(TM) 64-Bit Server VM/1.8.0_144/25.144-b01]
+[2017-09-08T11:45:45,827][INFO ][o.e.n.Node               ] JVM arguments [-Xms2g, -Xmx2g, -XX:+UseConcMarkSweepGC, -XX:CMSInitiatingOccupancyFraction=75, -XX:+UseCMSInitiatingOccupancyOnly, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -Djdk.io.permissionsUseCanonicalPath=true, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Dlog4j.skipJansi=true, -XX:+HeapDumpOnOutOfMemoryError, -Des.path.home=/usr/local/Cellar/elasticsearch/5.5.2/libexec]
+[2017-09-08T11:45:46,627][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [aggs-matrix-stats]
+[2017-09-08T11:45:46,627][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [ingest-common]
+[2017-09-08T11:45:46,627][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [lang-expression]
+[2017-09-08T11:45:46,627][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [lang-groovy]
+[2017-09-08T11:45:46,627][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [lang-mustache]
+[2017-09-08T11:45:46,628][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [lang-painless]
+[2017-09-08T11:45:46,628][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [parent-join]
+[2017-09-08T11:45:46,628][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [percolator]
+[2017-09-08T11:45:46,628][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [reindex]
+[2017-09-08T11:45:46,628][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [transport-netty3]
+[2017-09-08T11:45:46,628][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [transport-netty4]
+[2017-09-08T11:45:46,628][INFO ][o.e.p.PluginsService     ] [8dkHhm7] no plugins loaded
+[2017-09-08T11:45:48,148][INFO ][o.e.d.DiscoveryModule    ] [8dkHhm7] using discovery type [zen]
+[2017-09-08T11:45:48,658][INFO ][o.e.n.Node               ] initialized
+[2017-09-08T11:45:48,658][INFO ][o.e.n.Node               ] [8dkHhm7] starting ...
+[2017-09-08T11:45:48,871][INFO ][o.e.t.TransportService   ] [8dkHhm7] publish_address {127.0.0.1:9201}, bound_addresses {127.0.0.1:9201}
+[2017-09-08T11:45:51,928][INFO ][o.e.c.s.ClusterService   ] [8dkHhm7] new_master {8dkHhm7}{8dkHhm7uTuKDyIMI_HK3ug}{NHJmdV-SQROPrC6VxLPEvA}{127.0.0.1}{127.0.0.1:9201}, reason: zen-disco-elected-as-master ([0] nodes joined)
+[2017-09-08T11:45:51,948][INFO ][o.e.h.n.Netty4HttpServerTransport] [8dkHhm7] publish_address {127.0.0.1:9200}, bound_addresses {127.0.0.1:9200}
+[2017-09-08T11:45:51,949][INFO ][o.e.n.Node               ] [8dkHhm7] started
+[2017-09-08T11:45:52,118][INFO ][o.e.g.GatewayService     ] [8dkHhm7] recovered [1] indices into cluster_state
+[2017-09-08T11:45:52,334][INFO ][o.e.c.r.a.AllocationService] [8dkHhm7] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[destinations_development_20170830152723184][0]] ...]).
+[2017-09-08T11:46:57,151][INFO ][o.e.n.Node               ] [] initializing ...
+[2017-09-08T11:46:57,210][INFO ][o.e.e.NodeEnvironment    ] [8dkHhm7] using [1] data paths, mounts [[/ (/dev/disk0s2)]], net usable_space [190.8gb], net total_space [232.9gb], spins? [unknown], types [hfs]
+[2017-09-08T11:46:57,211][INFO ][o.e.e.NodeEnvironment    ] [8dkHhm7] heap size [1.9gb], compressed ordinary object pointers [true]
+[2017-09-08T11:46:57,222][INFO ][o.e.n.Node               ] node name [8dkHhm7] derived from node ID [8dkHhm7uTuKDyIMI_HK3ug]; set [node.name] to override
+[2017-09-08T11:46:57,222][INFO ][o.e.n.Node               ] version[5.5.2], pid[991], build[b2f0c09/2017-08-14T12:33:14.154Z], OS[Mac OS X/10.11.6/x86_64], JVM[Oracle Corporation/Java HotSpot(TM) 64-Bit Server VM/1.8.0_144/25.144-b01]
+[2017-09-08T11:46:57,222][INFO ][o.e.n.Node               ] JVM arguments [-Xms2g, -Xmx2g, -XX:+UseConcMarkSweepGC, -XX:CMSInitiatingOccupancyFraction=75, -XX:+UseCMSInitiatingOccupancyOnly, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -Djdk.io.permissionsUseCanonicalPath=true, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Dlog4j.skipJansi=true, -XX:+HeapDumpOnOutOfMemoryError, -Des.path.home=/usr/local/Cellar/elasticsearch/5.5.2/libexec]
+[2017-09-08T11:46:57,872][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [aggs-matrix-stats]
+[2017-09-08T11:46:57,872][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [ingest-common]
+[2017-09-08T11:46:57,873][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [lang-expression]
+[2017-09-08T11:46:57,873][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [lang-groovy]
+[2017-09-08T11:46:57,873][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [lang-mustache]
+[2017-09-08T11:46:57,873][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [lang-painless]
+[2017-09-08T11:46:57,873][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [parent-join]
+[2017-09-08T11:46:57,873][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [percolator]
+[2017-09-08T11:46:57,873][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [reindex]
+[2017-09-08T11:46:57,873][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [transport-netty3]
+[2017-09-08T11:46:57,873][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [transport-netty4]
+[2017-09-08T11:46:57,874][INFO ][o.e.p.PluginsService     ] [8dkHhm7] no plugins loaded
+[2017-09-08T11:46:59,149][INFO ][o.e.d.DiscoveryModule    ] [8dkHhm7] using discovery type [zen]
+[2017-09-08T11:46:59,674][INFO ][o.e.n.Node               ] initialized
+[2017-09-08T11:46:59,675][INFO ][o.e.n.Node               ] [8dkHhm7] starting ...
+[2017-09-08T11:46:59,815][INFO ][o.e.t.TransportService   ] [8dkHhm7] publish_address {127.0.0.1:9201}, bound_addresses {127.0.0.1:9201}
+[2017-09-08T11:47:02,860][INFO ][o.e.c.s.ClusterService   ] [8dkHhm7] new_master {8dkHhm7}{8dkHhm7uTuKDyIMI_HK3ug}{kj6vBORYRsiXEA-IHo_X2Q}{127.0.0.1}{127.0.0.1:9201}, reason: zen-disco-elected-as-master ([0] nodes joined)
+[2017-09-08T11:47:02,873][INFO ][o.e.h.n.Netty4HttpServerTransport] [8dkHhm7] publish_address {127.0.0.1:9200}, bound_addresses {127.0.0.1:9200}
+[2017-09-08T11:47:02,874][INFO ][o.e.n.Node               ] [8dkHhm7] started
+[2017-09-08T11:47:03,029][INFO ][o.e.g.GatewayService     ] [8dkHhm7] recovered [1] indices into cluster_state
+[2017-09-08T11:47:03,215][INFO ][o.e.c.r.a.AllocationService] [8dkHhm7] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[destinations_development_20170830152723184][0]] ...]).

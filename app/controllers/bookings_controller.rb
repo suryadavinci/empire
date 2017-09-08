@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
   def index
-    @bookings = current_user.bookings.all.includes(:journey)
+    @bookings = current_user.bookings.all.includes(:transport)
   end
 
   # GET /bookings/1
@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
 
   # GET /bookings/new
   def new
-    @journeys = Journey.all
+    @transports = Transport.all.where("end_date < SYSDATE()")
     @booking = Booking.new
   end
 
@@ -85,7 +85,7 @@ class BookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
-      params.require(:booking).permit(:journey_id, :seats_count)
+      params.require(:booking).permit(:transport_id, :seats_count,:departure_date)
     end
 
 
