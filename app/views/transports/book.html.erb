@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Name:</strong>
+  <%= @transport.name %>
+</p>
+
+<p>
+  <strong>Bus:</strong>
+  <%= @transport.bus.name %>
+</p>
+
+<p>
+  <strong>From:</strong>
+  <%= @transport.from.name %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @transport.to.name %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @transport.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @transport.end_date %>
+</p>
+
+<p>
+  <strong>Departure time:</strong>
+  <%= format_time( @transport.departure_time )%>
+</p>
+
+<p>
+  <strong>Arrival time:</strong>
+  <%= format_time(@transport.arrival_time) %>
+</p>
+
+<p>
+  <strong>Recurrence:</strong>
+  <%= recurrence(@transport) %>
+</p>
+
+
+<%= render '/shared/transport_form' %>

@@ -1,0 +1,41 @@
+<%= form_with(model: @booking, local: true) do |form| %>
+  <% if @booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+      <ul>
+      <% @booking.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+      <%= form.hidden_field :transport_id, id: :booking_transport_id, value: @transport.id %>
+      <%= form.hidden_field :departure_date, id: :booking_departure_date, value: @booking.departure_date %>
+
+      <%= form.label "Departure Date:  #{@booking.departure_date }" %>
+  <div class="field">
+    <%= form.label "Seats Count (Enter the number of seats to Book)" %>
+    <%= form.number_field :seats_count, id: :booking_seats_count %>
+  </div>
+
+    <h2>Passengers</h2>
+    <%= form.fields_for :passengers do |ff| %>
+
+        <p class="fields" >
+
+          <%= ff.label :name %>
+          <%= ff.text_field :name %>
+
+        <%= ff.label :age %>
+        <%= ff.text_field :age %>
+        <%= link_to_remove_fields "remove", ff %>
+        </p>
+
+    <% end %>
+    <p><%= link_to_add_fields "add", form, :passengers %></p>
+
+
+  <div class="actions">
+    <%= form.submit "Book"%>
+  </div>
+<% end %>

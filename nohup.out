@@ -52,3 +52,34 @@
 [2017-09-08T11:47:02,874][INFO ][o.e.n.Node               ] [8dkHhm7] started
 [2017-09-08T11:47:03,029][INFO ][o.e.g.GatewayService     ] [8dkHhm7] recovered [1] indices into cluster_state
 [2017-09-08T11:47:03,215][INFO ][o.e.c.r.a.AllocationService] [8dkHhm7] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[destinations_development_20170830152723184][0]] ...]).
+[2017-09-11T11:29:47,823][INFO ][o.e.n.Node               ] [] initializing ...
+[2017-09-11T11:29:47,906][INFO ][o.e.e.NodeEnvironment    ] [8dkHhm7] using [1] data paths, mounts [[/ (/dev/disk0s2)]], net usable_space [191.3gb], net total_space [232.9gb], spins? [unknown], types [hfs]
+[2017-09-11T11:29:47,906][INFO ][o.e.e.NodeEnvironment    ] [8dkHhm7] heap size [1.9gb], compressed ordinary object pointers [true]
+[2017-09-11T11:29:47,919][INFO ][o.e.n.Node               ] node name [8dkHhm7] derived from node ID [8dkHhm7uTuKDyIMI_HK3ug]; set [node.name] to override
+[2017-09-11T11:29:47,919][INFO ][o.e.n.Node               ] version[5.5.2], pid[701], build[b2f0c09/2017-08-14T12:33:14.154Z], OS[Mac OS X/10.11.6/x86_64], JVM[Oracle Corporation/Java HotSpot(TM) 64-Bit Server VM/1.8.0_144/25.144-b01]
+[2017-09-11T11:29:47,919][INFO ][o.e.n.Node               ] JVM arguments [-Xms2g, -Xmx2g, -XX:+UseConcMarkSweepGC, -XX:CMSInitiatingOccupancyFraction=75, -XX:+UseCMSInitiatingOccupancyOnly, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -Djdk.io.permissionsUseCanonicalPath=true, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Dlog4j.skipJansi=true, -XX:+HeapDumpOnOutOfMemoryError, -Des.path.home=/usr/local/Cellar/elasticsearch/5.5.2/libexec]
+[2017-09-11T11:29:48,624][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [aggs-matrix-stats]
+[2017-09-11T11:29:48,624][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [ingest-common]
+[2017-09-11T11:29:48,624][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [lang-expression]
+[2017-09-11T11:29:48,624][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [lang-groovy]
+[2017-09-11T11:29:48,624][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [lang-mustache]
+[2017-09-11T11:29:48,624][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [lang-painless]
+[2017-09-11T11:29:48,625][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [parent-join]
+[2017-09-11T11:29:48,625][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [percolator]
+[2017-09-11T11:29:48,625][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [reindex]
+[2017-09-11T11:29:48,625][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [transport-netty3]
+[2017-09-11T11:29:48,625][INFO ][o.e.p.PluginsService     ] [8dkHhm7] loaded module [transport-netty4]
+[2017-09-11T11:29:48,625][INFO ][o.e.p.PluginsService     ] [8dkHhm7] no plugins loaded
+[2017-09-11T11:29:50,003][INFO ][o.e.d.DiscoveryModule    ] [8dkHhm7] using discovery type [zen]
+[2017-09-11T11:29:50,483][INFO ][o.e.n.Node               ] initialized
+[2017-09-11T11:29:50,483][INFO ][o.e.n.Node               ] [8dkHhm7] starting ...
+[2017-09-11T11:29:50,633][INFO ][o.e.t.TransportService   ] [8dkHhm7] publish_address {127.0.0.1:9201}, bound_addresses {127.0.0.1:9201}
+[2017-09-11T11:29:53,688][INFO ][o.e.c.s.ClusterService   ] [8dkHhm7] new_master {8dkHhm7}{8dkHhm7uTuKDyIMI_HK3ug}{Fm5Xw3DyQ0ut9Ng8qYAA0g}{127.0.0.1}{127.0.0.1:9201}, reason: zen-disco-elected-as-master ([0] nodes joined)
+[2017-09-11T11:29:53,701][INFO ][o.e.h.n.Netty4HttpServerTransport] [8dkHhm7] publish_address {127.0.0.1:9200}, bound_addresses {127.0.0.1:9200}
+[2017-09-11T11:29:53,701][INFO ][o.e.n.Node               ] [8dkHhm7] started
+[2017-09-11T11:29:53,833][INFO ][o.e.g.GatewayService     ] [8dkHhm7] recovered [1] indices into cluster_state
+[2017-09-11T11:29:54,024][INFO ][o.e.c.r.a.AllocationService] [8dkHhm7] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[destinations_development_20170830152723184][0]] ...]).
+[2017-09-11T11:31:48,013][INFO ][o.e.n.Node               ] [8dkHhm7] stopping ...
+[2017-09-11T11:31:48,041][INFO ][o.e.n.Node               ] [8dkHhm7] stopped
+[2017-09-11T11:31:48,041][INFO ][o.e.n.Node               ] [8dkHhm7] closing ...
+[2017-09-11T11:31:48,046][INFO ][o.e.n.Node               ] [8dkHhm7] closed

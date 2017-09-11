@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :transports do
     collection do
       post :search
+      post :book
+
     end
   end
   resources :passengers

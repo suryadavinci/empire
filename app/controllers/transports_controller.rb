@@ -63,7 +63,7 @@ class TransportsController < ApplicationController
   end
 
   def search
-    @transports = Transport.where("from_id = ? and to_id = ? and ((start_date = ? and recurrence =0) or (start_date <= ? and recurrence =1 and end_date > ?)) ",search_params[:from_id], search_params[:to_id], search_params[:start_date], search_params[:start_date],search_params[:start_date])
+    @transports = Transport.where("from_id = ? and to_id = ? and ((start_date = ? and recurrence =0) or (start_date <= ? and recurrence =1 and end_date > ?)) ",search_params[:from_id], search_params[:to_id], search_params[:start_date], search_params[:start_date],search_params[:start_date]).includes(:from,:to)
     @departure_date = search_params[:start_date]
     #render @transports
   end
@@ -77,6 +77,16 @@ class TransportsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+
+  def book
+  #  @transport.includes(:bus,:from,:to)
+  @booking = @transport.bookings.build(departure_date: params[:departure_date])
+
+  end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
