@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
   def index
-    @bookings = current_user.bookings.all.includes(:transport)
+    @bookings = current_user.bookings.all.includes(:transport).order(:departure_date)
   end
 
   # GET /bookings/1
@@ -36,10 +36,10 @@ class BookingsController < ApplicationController
     p booking_params
 #    booking_params[:status] = "Pending"
     @booking = current_user.bookings.build(booking_params)
-    @booking.status ="Pending"
+    @booking.status ="1"
     respond_to do |format|
       if @booking.save
-        flash[:success] = "Booking Successful!!! Now enter passenger details."
+        flash[:success] = "Booking Successful!!!"
         format.html { redirect_to @booking}
         format.json { render :show, status: :created, location: @booking }
       else
@@ -85,7 +85,7 @@ class BookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
-      params.require(:booking).permit(:transport_id, :seats_count,:departure_date)
+      params.require(:booking).permit(:transport_id, :seats_count,:departure_date, passengers_attributes: [:age, :name, :_destroy])
     end
 
 

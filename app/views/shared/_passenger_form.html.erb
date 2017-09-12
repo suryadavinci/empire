@@ -1,22 +1,7 @@
 
-<strong>Enter Passenger#<%=@booking.passengers.count+1%> Details </strong>
-<% @passenger = @booking.passengers.build %>
-<%= form_for(@passenger) do |form| %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :passenger_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :age %>
-    <%= form.text_field :age, id: :passenger_age %>
-  </div>
-
-
-    <%= form.hidden_field :booking_id, value: @booking.id %>
-
-
-  <%= form.submit "Post", class: "btn btn-primary" %>
-
-<% end %>
+<p class="field" >
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :age %>
+<%= f.text_field :age %>
+</p>

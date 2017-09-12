@@ -2,9 +2,6 @@
   <tr>
     <td><%=link_to passenger.name, passenger%></td>
     <td><%= passenger.age %></td>
-    <td>
-        <%= link_to "Remove", passenger, method: :delete,
-                                         data: { confirm: "You sure?" } %>
-    </td>
+    
   </tr>
 </tbody>

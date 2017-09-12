@@ -11,8 +11,8 @@ class TransportsController < ApplicationController
   # GET /transports/1.json
   def show
   #  @transport.includes(:bus,:from,:to)
-  @booking = Booking.new(:departure_date => params[:departure_date])
-
+  #@booking = Booking.new(:departure_date => params[:departure_date])
+  @booking = @transport.bookings.build(:departure_date => params[:departure_date])
   end
 
   # GET /transports/new

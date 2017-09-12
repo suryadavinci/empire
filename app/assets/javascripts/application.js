@@ -26,6 +26,28 @@ function remove_fields(link) {
 
 function add_fields(link, association, content) {
   var new_id = new Date().getTime();
-  var regexp = new RegExp("new_" + association, "g")
-  $(link).parent().before(content.replace(regexp, new_id));
+  var regexp = new RegExp("new_" + association, "g");
+  var e = document.getElementById('booking_seats_count');
+  var strSel = e.options[e.selectedIndex].value
+  var count;
+
+  for(count = 0; count < strSel; count++){
+
+    //document.getElementById("transport_form").appendChild(content.replace(regexp, new_id));
+   $(link).parent().after(content.replace(regexp, new_id));
+   //document.getElementById("transport_form").appendChild(content.replace(regexp, new_id));
+   new_id = new_id+1;
+   //new_id = new Date().getTime();
+   regexp = new RegExp("new_" + association, "g");
+  }
+
+  document.getElementById('submit').disabled = false;
+  document.getElementById('booking_seats_count').disabled=true;
+  var seats_count = document.createElement("input");
+  seats_count.setAttribute("type", "hidden");
+  seats_count.setAttribute("name", "booking[seats_count]");
+  seats_count.setAttribute("value", document.getElementById('booking_seats_count').value);
+  document.getElementById("transport_form").appendChild(seats_count);
+  document.getElementById('add_passengers').style.display = "none";
+
 }

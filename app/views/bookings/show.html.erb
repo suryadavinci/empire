@@ -21,7 +21,7 @@
 
 <p>
   <strong>Departure Date:</strong>
-  <%= format_time(@booking.departure_date) %>
+  <%= format_date(@booking.departure_date) %>
 </p>
 
 <p>
@@ -40,12 +40,13 @@
 </p>
 
 <p>
-  <strong>Total Cost:</strong>
+  <strong>Total Cost: <%= cost(@booking) %></strong>
 </p>
+
 
 <p>
   <strong>Booking Status:</strong>
-  <font color = "green"><strong><%= @booking.status %></strong></font>
+  <font color = "green"><strong><%= booking_status(@booking)%></strong></font>
 </p>
 
 <p>
@@ -67,7 +68,4 @@
     <%= render @passengers %>
   </table>
 </div>
-<% end %>
-<% if passenger_details(@booking) > 0 %>
-<%= render 'shared/passenger_form' %>
 <% end %>

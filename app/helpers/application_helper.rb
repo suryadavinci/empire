@@ -8,6 +8,11 @@ module ApplicationHelper
     end
   end
 
+
+  def cost(booking)
+    booking.seats_count*booking.transport.cost
+  end
+
   def max_seats(transport)
     max_seats = transport.bus.max_seats
   end
@@ -69,6 +74,15 @@ module ApplicationHelper
       end
       link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
     end
+
+    def booking_status(booking)
+      if(booking.status == "1")
+        "Completed"
+      else
+        "Pending"
+      end
+    end
+
 
 
 end

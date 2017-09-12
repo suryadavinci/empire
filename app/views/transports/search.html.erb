@@ -13,8 +13,11 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
-  <%= render @transports %>
+  <tbody>
+     <% @transports.each do |transport| %>
+          <%= render transport %>
+   <% end %>
+ </tbody>
 </table>
 
 <br>

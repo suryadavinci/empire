@@ -8,22 +8,16 @@
   </tr>
 </BR>
 </tbody> -->
-
-
-<tbody>
-  <!-- <% @transports.each do |transport| %> -->
-    <tr>
-      <td><%= link_to transport.name,  {:controller => "transports", :action => "show", :id => transport.id, :departure_date => @departure_date } %></td>
-      <td><%= transport.from.name %></td>
-      <td><%= transport.to.name %></td>
-      <!-- <td><%= transport.start_date %></td> -->
-      <!-- <td><%= transport.end_date %></td> -->
-      <td><%= format_time(transport.departure_time) %></td>
-      <td><%= format_time(transport.arrival_time) %></td>
-      <td><%= recurrence(transport) %></td>
-      <td><%= link_to 'Show', transport %></td>
-      <td><%= link_to 'Edit', edit_transport_path(transport) %></td>
-      <td><%= link_to 'Destroy', transport, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <!-- <% end %> -->
-</tbody>
+<tr>
+  <td><%= link_to transport.name,  {:controller => "transports", :action => "show", :id => transport.id, :departure_date => @departure_date } %></td>
+  <td><%= transport.from.name %></td>
+  <td><%= transport.to.name %></td>
+  <!-- <td><%= transport.start_date %></td> -->
+  <!-- <td><%= transport.end_date %></td> -->
+  <td><%= format_time(transport.departure_time) %></td>
+  <td><%= format_time(transport.arrival_time) %></td>
+  <td><%= recurrence(transport) %></td>
+  <td><%= link_to 'Show', transport %></td>
+  <td><%= link_to 'Edit', edit_transport_path(transport) %></td>
+  <td><%= link_to 'Destroy', transport, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>

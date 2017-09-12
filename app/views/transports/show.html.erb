@@ -21,28 +21,30 @@
 
 <p>
   <strong>Start date:</strong>
-  <%= @transport.start_date %>
+  <%= format_date(@transport.start_date) %>
 </p>
 
 <p>
   <strong>End date:</strong>
-  <%= @transport.end_date %>
+  <%= format_date(@transport.end_date) %>
 </p>
 
 <p>
   <strong>Departure time:</strong>
-  <%= @transport.departure_time %>
+  <%= format_time(@transport.departure_time )%>
 </p>
 
 <p>
   <strong>Arrival time:</strong>
-  <%= @transport.arrival_time %>
+  <%= format_time(@transport.arrival_time) %>
 </p>
 
 <p>
   <strong>Recurrence:</strong>
-  <%= @transport.recurrence %>
+  <%= recurrence(@transport) %>
 </p>
-
+<% if @booking.departure_date %>
+<%= render '/shared/transport_form' %>
+<% end %>
 <%= link_to 'Edit', edit_transport_path(@transport) %> |
 <%= link_to 'Back', transports_path %>
